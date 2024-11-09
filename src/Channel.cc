@@ -3,7 +3,6 @@
 #include <cassert>
 #include <sys/epoll.h>
 
-#include "EventLoop.hpp"
 
 using namespace goa::ev;
 

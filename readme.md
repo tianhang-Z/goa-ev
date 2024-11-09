@@ -19,25 +19,52 @@ inetaddress.hpp
 
 callback.hpp
 
-核心 channel epollpooler  eventloop
-
-channel管理fd  
-
-epollpooler管理channel   获取发生事件的channel
-
-
-
-
-
-
-
 timer.hpp
 
 channel.hpp   channel.cc{eventloop*}
 
-timerqueue  { eventloop*,  channel }
+timerqueue  含有自己的timerfd                         
+
+eventloop {其中含有epollpooler  含有timerqueue     含有wakeupfd}
+
+acceptor
+
+countdownlatch   eventloopThread
+
+
+
+buffer
+
+tcpconnection  tcpsingleserver 
+
+tcpserver
+
+
+
+connector  tcpclient
+
+
+
+核心 channel epollpooler  eventloop
+
+channel管理fd           每个fd都有自己的channel    channel绑定自己的eventloop
+
+epollpooler管理channel             获取发生事件的channel                            timerfd wakupfd  客户端fd  服务端监听fd  都由epoll管理
+
+eventloop 拥有epollpoller       同时有自己的wakeupfd 
+
+
+
+
+
+
 
 
 <img src="./image/readme_image/da8f0b46d7d8eaf0963ef83ecd8255a.jpg" alt="da8f0b46d7d8eaf0963ef83ecd8255a" style="zoom: 25%;" />
 
 ![v2-169f54ec4121f9f80aaebb1e44a4fdf2_r](./image/readme_image/v2-169f54ec4121f9f80aaebb1e44a4fdf2_r.jpg)
+
+![img](https://cdn.statically.io/gh/moonlightleaf/pics@master/%E9%A1%B9%E7%9B%AE%E8%AE%B0%E5%BD%95/ev%E6%9E%B6%E6%9E%84.5xw73lsoobs0.webp)
+
+
+

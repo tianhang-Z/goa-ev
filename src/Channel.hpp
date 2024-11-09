@@ -13,7 +13,7 @@ namespace ev {
 class EventLoop;
 
 /*
-channel封装了某个fd 及其感兴趣的事件和发送的事件类型
+channel封装了某个fd 及其感兴趣的事件和发送的事件类型   以及事件的回调函数
 Channel总是作为另一个对象的成员，比如Timer、Acceptor、TCPConnection
 */
 class Channel : noncopyable {
@@ -56,7 +56,7 @@ public:
     bool pooling;         //channel是否被epoll管理
 
 private:
-    EventLoop* loop_;          // fd 属于的eventloop
+    EventLoop* loop_;          // channel 属于的eventloop
     int fd_;        // channel 照看的fd
     std::weak_ptr<void> tie_;
     bool tied_;
@@ -71,7 +71,7 @@ private:
 
 private:
 
-    // TODO   利用loop_对象注册或注销
+    // TODO   利用loop_对象的epollpoller注册或注销
     void update();
     void remove();
 

@@ -7,7 +7,7 @@ using namespace goa::ev;
 EPollPoller::EPollPoller(EventLoop* loop):
                         loop_(loop),
                         events_(128),
-                        epollfd_(epoll_create(EPOLL_CLOEXEC))
+                        epollfd_(epoll_create1(EPOLL_CLOEXEC))
 {
     if(epollfd_ ==-1 ){
         SYSFATAL("Epoller::epoll_create1");        
@@ -18,6 +18,7 @@ EPollPoller::~EPollPoller(){
     close(epollfd_);
 }
 
+// 获取有事件发生的channel
 void EPollPoller::poll(ChannelList& activeChannels){
     loop_->assertInLoopThread();
     int maxEvents = static_cast<int>(events_.size());
@@ -44,19 +45,22 @@ void EPollPoller::poll(ChannelList& activeChannels){
 
 
 // 更新epoll中管理的channel
-void updateChannel(Channel* channel){
+void EPollPoller::updateChannel(Channel* channel){
     loop_->assertInLoopThread();
     int op = 0;
     // 更新Channel的几种情况
-    if(!channel -> pooling ){ // 如果当前Channel没有被管理，那么这里的更新操作一定是要添加到epoll管理
-        assert(!channel -> isNoneEvent()); // 既然是新的待添加管理的对象，那么一定设置过想要监听的操作类型
+    if(!channel -> pooling ){ 
+        // 如果当前Channel没有被管理，那么这里的更新操作一定是要添加到epoll管理
+        assert(!channel -> isNoneEvents()); // 既然是新的待添加管理的对象，那么一定设置过想要监听的操作类型
         op = EPOLL_CTL_ADD;
         channel -> pooling = true;
     }
-    else if(!channel -> isNoneEvent()){ // 如果当前Channel已经被管理，但是需要更新监听的操作类型
+    else if(!channel -> isNoneEvents()){ 
+        // 如果当前Channel已经被管理，但是需要更新监听的操作类型
         op = EPOLL_CTL_MOD;
     }
-    else {// 如果已经被管理  但是要监听的事件为空
+    else {
+        // 如果已经被管理  但是要监听的事件为空
         op = EPOLL_CTL_DEL;
         channel -> pooling = false;
     }
@@ -68,7 +72,7 @@ void updateChannel(Channel* channel){
 // epoll监听的每个fd都有自己的epoll_event结构体 一般来说结构体保存了监听的事件类型和data信息 data一般保存的是fd
 // 在注册事件的时候，epoll_event结构体中的data改为channel指针，channel指针包含了fd及感兴趣的事件信息
 // 通过epoll_wait函数 获取fd发生的事件类型 及管理它的channel指针
-void updateChannel(int op,Channel* channel){
+void EPollPoller::updateChannel(int op,Channel* channel){
     epoll_event epEv;
     epEv.events = channel -> events();
     epEv.data.ptr = channel;

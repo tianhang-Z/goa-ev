@@ -14,8 +14,9 @@ class EventLoop;
 class Channel;
 
 /*
-负责监听fd  
-
+有一个自己的epollfd_   负责监听channel的fd  并对fd进行更新和管理
+每个epollpoller属于一个eventloop  
+利用loop对epollpoller进行初始化  
 */
 class EPollPoller: noncopyable {
 

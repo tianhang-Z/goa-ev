@@ -37,20 +37,17 @@ std::vector<std::string_view> logLevelStr{
 
 
 inline std::string timestamp(){
-  auto now = std::chrono::system_clock::now(); // 返回一个时间戳  单位ns
-  // 时间点是 std::chrono::time_point<std::chrono::system_clock, duration> 类型
+    auto now = std::chrono::system_clock::now(); // 返回一个时间戳  单位ns
+    // 时间戳是 std::chrono::time_point<std::chrono::system_clock, duration> 类型
 
-  std::time_t time =
-      std::chrono::system_clock::to_time_t(now); // 转c里面的time_t 单位s
+    std::time_t time = std::chrono::system_clock::to_time_t(now); // 转c里面的time_t 单位s
 
-  auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
-                now.time_since_epoch()) %
-            1000;
+    auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()) %1000;
 
-  std::stringstream ss;
-  ss << std::put_time(std::gmtime(&time), "%Y%m%d %H:%M:%S") << "."
-     << std::setfill('0') << std::setw(3) << ms.count();
-  return ss.str();
+    std::stringstream ss;
+    ss << std::put_time(std::gmtime(&time), "%Y%m%d %H:%M:%S") << "."
+       << std::setfill('0') << std::setw(3) << ms.count();
+    return ss.str();
 }
 
 } // namespace anonymous
