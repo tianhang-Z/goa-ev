@@ -46,7 +46,22 @@ calculation handled by tid 160353: 335
 addOne_server :
 
 ```shell
-
+20241111 08:45:53.603 [160351] [  INFO] create TcpServer 0.0.0.0:9877 - TcpServer.cc:16
+20241111 08:45:53.605 [160351] [  INFO] TcpServer::start() 0.0.0.0:9877 with 32 eventLoop thread(s) - TcpServer.cc:62
+20241111 08:45:59.848 [160351] [  INFO] connection 127.0.0.1:42992 -> 0.0.0.0:9877 is up - AddOneServer.cc:42
+20241111 08:46:08.304 [160351] [ TRACE] connection 127.0.0.1:42992 -> 0.0.0.0:9877 recv 3 byte(s) - AddOneServer.cc:51
+20241111 08:46:23.604 [160351] [  INFO] connection timeout force close - AddOneServer.cc:91
+20241111 08:46:23.604 [160351] [  INFO] connection 127.0.0.1:42992 -> 0.0.0.0:9877 is down - AddOneServer.cc:42
+20241111 08:46:28.229 [160351] [  INFO] connection 127.0.0.1:32976 -> 0.0.0.0:9877 is up - AddOneServer.cc:42
+20241111 08:46:30.148 [160351] [ TRACE] connection 127.0.0.1:32976 -> 0.0.0.0:9877 recv 3 byte(s) - AddOneServer.cc:51
+20241111 08:46:43.604 [160351] [  INFO] connection timeout force close - AddOneServer.cc:91
+20241111 08:46:43.604 [160351] [  INFO] connection 127.0.0.1:32976 -> 0.0.0.0:9877 is down - AddOneServer.cc:42
+20241111 08:46:53.610 [160351] [  INFO] server quit after 5 second(s)... - AddOneServer.cc:123
+20241111 08:46:54.610 [160351] [  INFO] server quit after 4 second(s)... - AddOneServer.cc:125
+20241111 08:46:55.610 [160351] [  INFO] server quit after 3 second(s)... - AddOneServer.cc:125
+20241111 08:46:56.610 [160351] [  INFO] server quit after 2 second(s)... - AddOneServer.cc:125
+20241111 08:46:57.610 [160351] [  INFO] server quit after 1 second(s)... - AddOneServer.cc:125
+20241111 08:46:58.610 [160351] [  INFO] server quit after 0 second(s)... - AddOneServer.cc:125
 ```
 
 **AddOneServer**采用multi-reactor接受连接请求，线程池处理计算任务的架构，从客户端得到的返回结果可以看出，两个客户端的连接请求分别由不同的线程接受，两个客户端的计算任务也由线程池中两个不同的线程执行。
