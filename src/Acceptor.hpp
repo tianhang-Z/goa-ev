@@ -23,15 +23,14 @@ public:
 
     bool listening() const;
 
-    void listen();  //将acceptfd_及其回调函数写到acceptChannel中
+    //开启监听acceptfd，将acceptfd_及其回调函数写到acceptChannel中，并注册到eventloop的epollpoller中
+    void listen();  
 
     void setNewConnectionCallback(const NewConnectionCallback& callback);
 
 private:
     /*
     acceptfd_的回调函数,接受新连接，
-    并且以负载均衡的选择方式选择一个sub EventLoop，
-    并把这个新连接分发到这个subEventLoop上。
     */
     void handleRead();
     
@@ -40,7 +39,7 @@ private:
     const int acceptfd_;          //服务器监听套接字的文件描述符
     Channel acceptChannel_;
     InetAddress local_;
-    NewConnectionCallback newConnectionCallback_;   //handleRead()中利用该函数 实现分发新连接到subReactor
+    NewConnectionCallback newConnectionCallback_;   //
 };
 
 } // namespace ev

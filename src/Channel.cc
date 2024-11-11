@@ -1,4 +1,5 @@
 #include "Channel.hpp"
+#include "EventLoop.hpp"
 
 #include <cassert>
 #include <sys/epoll.h>
@@ -7,10 +8,10 @@
 using namespace goa::ev;
 
 Channel::Channel(EventLoop* loop,int fd):
-    pooling(false);
+    pooling(false),
     loop_(loop),
     fd_(fd),
-    tie_(false);
+    tied_(false),
     events_(0),
     revents_(0),
     handlingEvents_(false)
@@ -100,7 +101,7 @@ bool Channel::isWriting() const {
     return events_ & EPOLLOUT;
 }
 
-// 利用loop_对象注册或注销
+// 利用loop_对象的epollpoller进行注册或注销
 void Channel::update() {
     loop_->updateChannel(this);
 }

@@ -51,7 +51,7 @@ EventLoop::EventLoop():
     }
 
     wakeupChannel_.setReadCallback([this](){handleRead();});            //绑定回调函数
-    wakeupChannel_.enableRead();
+    wakeupChannel_.enableRead();             //这里会将wakeupchannel_加入epoll中监听
 
     assert(t_Eventloop == nullptr);
     t_Eventloop = this;  //  one loop per thread
@@ -76,7 +76,8 @@ void EventLoop::loop(){
         for (auto channelPtr : activeChannels_) {
             channelPtr->handleEvents();
         }
-        // 这里的关键是如何使得线程不会被阻塞在epoll_wait，而能顺利执行后续任务，wakeup()      ??????????????
+        // 这里的关键是如何使得线程不会被阻塞在epoll_wait，而能顺利执行后续任务
+        //wakeup() 向wakeupfd_写入数据 则唤醒了epoll_wait
         doPendingTasks();                    
     }
     TRACE("EventLoop {} quit", static_cast<void*>(this));
@@ -87,7 +88,7 @@ void EventLoop::quit(){
     assert(!quit_);
     quit_ = true;
     if(!isInLoopThread()){
-        wakeup();                          //为何？？？
+        wakeup();                        
     }
 }
 
@@ -152,7 +153,9 @@ void EventLoop::cancelTimer(Timer* timer){
 void EventLoop::wakeup(){
     uint64_t one = 1;
     ssize_t n = write(wakeupfd_, &one, sizeof(one));
-
+    if (n != sizeof(one)) {
+        SYSERR("EventLoop::wakeup() should write() {} bytes but", sizeof(one), n);
+    }
 }
 
 // 通过epollpoller更新channel

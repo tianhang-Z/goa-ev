@@ -60,6 +60,12 @@
         "thread": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp",
-        "condition_variable": "cpp"
+        "condition_variable": "cpp",
+        "mutex": "cpp",
+        "cstring": "cpp",
+        "any": "cpp",
+        "unordered_set": "cpp",
+        "cassert": "cpp",
+        "future": "cpp"
     }
 }

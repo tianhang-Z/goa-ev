@@ -57,7 +57,7 @@ void Acceptor::listen(){
     }
     acceptChannel_.setReadCallback([this]()
                                    { handleRead(); }); // 当有连接请求到来时，交由handleRead处理
-    acceptChannel_.enableRead();
+    acceptChannel_.enableRead();           // 将acceptfd_注册到epoll中
 }
 
 void Acceptor::setNewConnectionCallback(const NewConnectionCallback& callback){

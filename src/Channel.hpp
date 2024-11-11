@@ -1,7 +1,6 @@
 #pragma once
 
 #include "noncopyable.hpp"
-#include "EventLoop.hpp"
 
 #include <functional>
 #include <memory>

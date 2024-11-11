@@ -4,7 +4,6 @@
 #include <sys/epoll.h>
 
 #include "noncopyable.hpp"
-#include "EventLoop.hpp"
 
 namespace goa {
 
@@ -39,4 +38,4 @@ private:
 
 } // namespace ev
 
-} // namespace mudong
+} // namespace goa

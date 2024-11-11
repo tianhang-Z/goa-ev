@@ -1,5 +1,6 @@
 #include "EPollPoller.hpp"
 #include "Logger.hpp"
+#include "EventLoop.hpp"
 
 using namespace goa::ev;
 

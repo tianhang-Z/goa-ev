@@ -1,21 +1,20 @@
 #pragma once
 
-#include <string.h>
 #include <string>
 #include <iostream>
+#include <cstdio>
+#include <vector>
+#include <cassert>
 #include <unistd.h>
 #include <chrono>
 #include <sstream>
-#include <fstream>
 #include <iomanip>
-#include <syncstream>
 #include <format>
-#include <cstdio>
-#include <vector>
-// #include <cassert>
-
-// #include <functional>
-// #include <tuple>
+#include <syncstream>
+#include <string.h>
+#include <fstream>
+#include <functional>
+#include <tuple>
 
 namespace goa {
 
@@ -45,8 +44,7 @@ inline std::string timestamp(){
     auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()) %1000;
 
     std::stringstream ss;
-    ss << std::put_time(std::gmtime(&time), "%Y%m%d %H:%M:%S") << "."
-       << std::setfill('0') << std::setw(3) << ms.count();
+    ss << std::put_time(std::gmtime(&time), "%Y%m%d %H:%M:%S") << "." << std::setfill('0') << std::setw(3) << ms.count();
     return ss.str();
 }
 
@@ -54,7 +52,7 @@ inline std::string timestamp(){
 
 
 enum class LOG_LEVEL :unsigned{
-    LOG_LEVEL_TRACE=0,
+    LOG_LEVEL_TRACE = 0,
     LOG_LEVEL_DEBUG,
     LOG_LEVEL_INFO,
     LOG_LEVEL_WARN,
