@@ -13,6 +13,9 @@ using namespace goa::ev;
 
 using namespace std::chrono;
 
+/*
+timeout : 客户端连接后，超过一定时间没有任何活动，则关闭连接
+*/
 class AddOneServer : noncopyable {
 
 public:
@@ -124,8 +127,9 @@ int main() {
     InetAddress local(9877);
     AddOneServer server(&loop, local, 32, 10s, 32);  // base_server
     server.start();       // create singleserver and it's thread
- 
-    loop.runAfter(60s, [&]() {
+    
+    // 定时退出
+    loop.runAfter(1000s, [&]() {
         int countdown = 5;
         INFO("server quit after {} second(s)...", countdown);
         loop.runEvery(1s, [&, countdown]() mutable {
