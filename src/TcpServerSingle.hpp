@@ -2,44 +2,42 @@
 
 #include <unordered_set>
 
-#include "Callbacks.hpp"
 #include "Acceptor.hpp"
-#include "TcpConnection.hpp"
+#include "Callbacks.hpp"
 #include "EventLoop.hpp"
+#include "TcpConnection.hpp"
 
+namespace goa {
 
-namespace goa{
-
-namespace ev{
+namespace ev {
 
 class EventLoop;
 
 class TcpServerSingle : noncopyable {
+ public:
+  TcpServerSingle(EventLoop *loop, const InetAddress &local);
 
-public:
-    TcpServerSingle(EventLoop* loop, const InetAddress& local);
-    
-    void setConnectionCallback(const ConnectionCallback& callback);
-    void setMessageCallback(const MessageCallback &callback);
-    void setWriteCompleteCallback(const WriteCompleteCallback &callback);
-    
-    void start();
+  void setConnectionCallback(const ConnectionCallback &callback);
+  void setMessageCallback(const MessageCallback &callback);
+  void setWriteCompleteCallback(const WriteCompleteCallback &callback);
 
-private:
-    using ConnectionSet = std::unordered_set<TcpConnectionPtr>;
+  void start();
 
-    void newConnection(int connfd, const InetAddress &local, const InetAddress &peer);
-    
-    void closeConnection(const TcpConnectionPtr &conn);
+ private:
+  using ConnectionSet = std::unordered_set<TcpConnectionPtr>;
 
-    EventLoop* loop_;
-    Acceptor acceptor_;
-    ConnectionSet connections_;
-    ConnectionCallback connectionCallback_;
-    MessageCallback messageCallback_;
-    WriteCompleteCallback writeCompleteCallback_;
+  void newConnection(int connfd, const InetAddress &local,
+                     const InetAddress &peer);
 
+  void closeConnection(const TcpConnectionPtr &conn);
+
+  EventLoop *loop_;
+  Acceptor acceptor_;
+  ConnectionSet connections_;
+  ConnectionCallback connectionCallback_;
+  MessageCallback messageCallback_;
+  WriteCompleteCallback writeCompleteCallback_;
 };
 
-}// namespace ev
-}// namespace goa
+}  // namespace ev
+}  // namespace goa

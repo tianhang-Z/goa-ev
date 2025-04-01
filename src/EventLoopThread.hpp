@@ -4,9 +4,9 @@
 
 #include "CountDownLatch.hpp"
 
-namespace goa{
+namespace goa {
 
-namespace ev{
+namespace ev {
 
 class EventLoop;
 
@@ -15,24 +15,23 @@ EventLoopThread用于启动一个新的线程，该线程中创建EventLoop对�
 loop_指向其创建的线程中的eventloop
 每个eventloop都有绑定的线程
 */
-class EventLoopThread: noncopyable{
+class EventLoopThread : noncopyable {
+ public:
+  EventLoopThread();
+  ~EventLoopThread();
 
-public:
-    EventLoopThread();
-    ~EventLoopThread();
+  //创建一个新的线程 线程中创建EventLoop对象并运行
+  EventLoop* startLoop();
 
-   //创建一个新的线程 线程中创建EventLoop对象并运行 
-    EventLoop* startLoop();      
+ private:
+  void runInThread();
 
-private:
-    void runInThread();  
-
-    bool started_;
-    EventLoop* loop_;  //记录startLoop()创建的EventLoop对象
-    std::thread thread_;
-    CountDownLatch latch_;
+  bool started_;
+  EventLoop* loop_;  //记录startLoop()创建的EventLoop对象
+  std::thread thread_;
+  CountDownLatch latch_;
 };
 
-} // namespace ev
+}  // namespace ev
 
-}// namespace goa
+}  // namespace goa

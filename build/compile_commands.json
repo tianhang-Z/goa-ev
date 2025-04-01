@@ -1,0 +1,72 @@
+[
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/EventLoop.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/EventLoop.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/EventLoop.cc"
+},
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/EPollPoller.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/EPollPoller.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/EPollPoller.cc"
+},
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/Channel.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/Channel.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/Channel.cc"
+},
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/Acceptor.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/Acceptor.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/Acceptor.cc"
+},
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/Buffer.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/Buffer.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/Buffer.cc"
+},
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/InetAddress.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/InetAddress.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/InetAddress.cc"
+},
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/TcpConnection.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/TcpConnection.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/TcpConnection.cc"
+},
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/TcpServerSingle.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/TcpServerSingle.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/TcpServerSingle.cc"
+},
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/TcpServer.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/TcpServer.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/TcpServer.cc"
+},
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/ThreadPool.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/ThreadPool.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/ThreadPool.cc"
+},
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/Connector.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/Connector.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/Connector.cc"
+},
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/TcpClient.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/TcpClient.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/TcpClient.cc"
+},
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/EventLoopThread.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/EventLoopThread.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/EventLoopThread.cc"
+},
+{
+  "directory": "/mnt/d/cs_git_rep/goa-ev/build/src",
+  "command": "/usr/bin/g++  -I/mnt/d/cs_git_rep/goa-ev/src -fno-omit-frame-pointer -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -std=c++20 -march=native -rdynamic -g -o CMakeFiles/goa-ev.dir/TimerQueue.cc.o -c /mnt/d/cs_git_rep/goa-ev/src/TimerQueue.cc",
+  "file": "/mnt/d/cs_git_rep/goa-ev/src/TimerQueue.cc"
+}
+]
