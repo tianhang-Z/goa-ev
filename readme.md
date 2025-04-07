@@ -75,12 +75,10 @@ addOne_server :
 ```shell
 $ git clone https://github.com/tianhang-Z/goa-ev
 $ cd goa-ev
-$ mkdir build && cd build
-$ cmake [-DCMAKE_BUILD_TESTS=1] [-DCMAKE_BUILD_EXAMPLES=1] ..
-$ make install
+$ make all
 ```
 
-可以通过选择是否添加`-DCMAKE_BUILD_TESTS=1`和`-DCMAKE_BUILD_EXAMPLES=1`选项，来决定是否要对`test`和`examples`目录下的文件进行编译。
+makefile中可以通过选择是否添加`-DCMAKE_BUILD_TESTS=ON`和`-DCMAKE_BUILD_EXAMPLES=ON`选项，来决定是否要对`test`和`examples`目录下的文件进行编译。
 
 ## 参考
 

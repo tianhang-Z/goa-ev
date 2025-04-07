@@ -174,6 +174,71 @@ goa-ev/fast:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/goa-ev.dir/build.make src/CMakeFiles/goa-ev.dir/build
 .PHONY : goa-ev/fast
 
+#=============================================================================
+# Target rules for targets named test_Logger
+
+# Build rule for target.
+test_Logger: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_Logger
+.PHONY : test_Logger
+
+# fast build rule for target.
+test_Logger/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_Logger.dir/build.make test/CMakeFiles/test_Logger.dir/build
+.PHONY : test_Logger/fast
+
+#=============================================================================
+# Target rules for targets named echo_client
+
+# Build rule for target.
+echo_client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 echo_client
+.PHONY : echo_client
+
+# fast build rule for target.
+echo_client/fast:
+	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/echo_client.dir/build.make examples/CMakeFiles/echo_client.dir/build
+.PHONY : echo_client/fast
+
+#=============================================================================
+# Target rules for targets named echo_server
+
+# Build rule for target.
+echo_server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 echo_server
+.PHONY : echo_server
+
+# fast build rule for target.
+echo_server/fast:
+	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/echo_server.dir/build.make examples/CMakeFiles/echo_server.dir/build
+.PHONY : echo_server/fast
+
+#=============================================================================
+# Target rules for targets named addOne_server
+
+# Build rule for target.
+addOne_server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 addOne_server
+.PHONY : addOne_server
+
+# fast build rule for target.
+addOne_server/fast:
+	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/addOne_server.dir/build.make examples/CMakeFiles/addOne_server.dir/build
+.PHONY : addOne_server/fast
+
+#=============================================================================
+# Target rules for targets named addOne_client
+
+# Build rule for target.
+addOne_client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 addOne_client
+.PHONY : addOne_client
+
+# fast build rule for target.
+addOne_client/fast:
+	$(MAKE) $(MAKESILENT) -f examples/CMakeFiles/addOne_client.dir/build.make examples/CMakeFiles/addOne_client.dir/build
+.PHONY : addOne_client/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,7 +251,12 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... addOne_client"
+	@echo "... addOne_server"
+	@echo "... echo_client"
+	@echo "... echo_server"
 	@echo "... goa-ev"
+	@echo "... test_Logger"
 .PHONY : help
 
 
