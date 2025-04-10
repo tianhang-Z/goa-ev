@@ -21,7 +21,7 @@ Acceptor::Acceptor(EventLoop* loop, const InetAddress& local)
       acceptChannel_(loop, acceptfd_),
       local_(local) {
   int on = 1;
-  //允许重用地址  服务器重启时不需要等待端口释放
+  // SO_REUSEADDR  允许重用地址  服务器重启时不需要等待端口释放
   int ret = setsockopt(acceptfd_, SOL_SOCKET, SO_REUSEADDR, &on, sizeof(on));
   if (ret == -1) {
     SYSFATAL("Acceptor setsockopt SO_REUSEADDR");

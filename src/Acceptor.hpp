@@ -34,11 +34,11 @@ class Acceptor : noncopyable {
   void handleRead();
 
   bool listening_;
-  EventLoop* loop_;     // 指向的是主Reactor的EventLoop对象
+  EventLoop* loop_;
   const int acceptfd_;  //服务器监听套接字的文件描述符
   Channel acceptChannel_;
   InetAddress local_;
-  NewConnectionCallback newConnectionCallback_;  //
+  NewConnectionCallback newConnectionCallback_;  // 在tcpSingleServer中传入
 };
 
 }  // namespace ev

@@ -33,7 +33,6 @@ class Channel : noncopyable {
   void setCloseCallback(const CloseCallback& callback);
   void setErrorCallback(const ErrorCallback& callback);
 
-  // TODO
   void handleEvents();
   int fd() const;  //获取fd
   bool isNoneEvents() const;
@@ -63,14 +62,13 @@ class Channel : noncopyable {
   unsigned revents_;  // fd实际发生的事件类型
   bool handlingEvents_;
 
-  ReadCallback
-      readCallback_;  // fd各类型的处理函数  类似函数指针 但更安全、更灵活
+  ReadCallback readCallback_;
   WriteCallback writeCallback_;
   CloseCallback closeCallback_;
   ErrorCallback errorCallback_;
 
  private:
-  // TODO   利用loop_对象的epollpoller注册或注销
+  //   利用loop_对象的epollpoller注册或注销
   void update();
   void remove();
 

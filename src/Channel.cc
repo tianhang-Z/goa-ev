@@ -36,10 +36,9 @@ void Channel::setErrorCallback(const ErrorCallback& callback) {
 
 /**
  * Channel总是作为另一个对象的成员，比如Timer、Acceptor、TCPConnection
- * TCPConnection用shared_ptr来管理，当使用TCPConnect中的Channel对象，
- * 调用其相关方法时，TcpConnect可能提前执行析构，这种内存释放顺序是错误的，
- * 因此使用weak_ptr来延长对象的生命周期，相当于上了个锁，Channel执行完
- * 其母对象才能执行析构流程
+ * TcpConnection用shared_ptr来管理，当使用TCPConnection中的Channel对象，
+ * 调用其相关方法时，TcpConnection可能由于连接关闭提前执行析构，这种内存释放顺序是错误的，
+ * 因此在 Channel 回调中检查tie_指向的TcpConnection是否还存在
  **/
 void Channel::handleEvents() {
   loop_->assertInLoopThread();
