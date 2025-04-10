@@ -17,7 +17,9 @@ goa-ev是一款基于C++20开发的适用于Linux的事件驱动型多线程网�
 
 ![1](./image/readme_image/1.png)
 
-goa-ev的核心架构如上图所示，服务端为一个**TcpServer**实例，该实例中可包含有多个**TcpServerSingle**实例，每个**TcpServerSingle**实例都对应有一个**EventLoop**，运行在一个独立线程中。每个**TcpServerSingle**都包含有独立的**Acceptor**负责监听服务器端口并在连接到来时通过调用**newConnectionCallback**来对连接事件进行处理。该回调函数由**TcpServerSingle**传入**Acceptor**，负责建立连接对象**TcpConnection**。当客户端连接请求到来时，若有多个**Acceptor**监听同一个服务器端口（已开启**SO_REUSEPORT**选项），则由操作系统采用相对公平的方式决定将连接分配给哪个线程，从而实现负载均衡。
+goa-ev的核心架构如上图所示，其核心模块为Channel，EPollPoller和EventLoop。服务端为一个**TcpServer**实例，该实例中可包含有多个**TcpServerSingle**实例，每个**TcpServerSingle**实例都对应有一个**EventLoop**，运行在一个独立线程中，其通过调用loop监听和处理事件。每个**TcpServerSingle**都包含有独立的**Acceptor**负责监听同一个服务器端口，并在连接到来时通过调用**newConnectionCallback**来对连接事件进行处理。该回调函数由**TcpServerSingle**传入**Acceptor**，负责建立连接对象**TcpConnection**。当客户端连接请求到来时，若有多个**Acceptor**监听同一个服务器端口（已开启**SO_REUSEPORT**选项），则由操作系统采用相对公平的方式决定将连接分配给哪个线程，从而实现负载均衡。
+
+
 
 ## 使用示例
 
