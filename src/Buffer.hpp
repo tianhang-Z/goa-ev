@@ -10,6 +10,12 @@ namespace goa {
 
 namespace ev {
 
+/*
+这是一个环形缓存区 有两个指针readerIndex_和writerIndex_
+[预留空间]   [可读数据][可写空间]
+|<-prepend->|<---r--->|<---w-->|
+*/
+
 class Buffer {
  public:
   static const size_t kCheapPrepend = 8;
