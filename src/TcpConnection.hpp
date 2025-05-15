@@ -87,7 +87,7 @@ class TcpConnection : noncopyable,
   InetAddress local_;
   InetAddress peer_;
   Buffer inputBuffer_;
-  Buffer outputBuffer_;
+  Buffer outputBuffer_;  // 当socket缓冲区满时 用于存放未发送的数据
   size_t highWaterMark_;
 
   std::any context_;
