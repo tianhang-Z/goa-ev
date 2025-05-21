@@ -90,8 +90,8 @@ Timer *TimerQueue::addTimer(TimerCallback callback, Timestamp when,
     auto checkPair = timers_.insert({when, timer});
     assert(checkPair.second);
     // insert 的返回值是一个 pair，其中包含了两个元素：
-    //        插入是否成功：一个布尔值，表示元素是否成功插入。
     //        指向插入元素的迭代器：指向插入元素的位置。
+    //        插入是否成功：一个布尔值，表示元素是否成功插入。
     // 设置定时器触发时刻为最近的时间点
     if (timers_.begin() == checkPair.first) {
       // 新插入的元素若排在set的第一个 则利用其设置timerfd_
