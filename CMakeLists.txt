@@ -12,6 +12,7 @@ endif()
 message("CMAKE_BUILD_TYPE: ${CMAKE_BUILD_TYPE}")
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 set(CXX_FLAGS
         -fno-omit-frame-pointer # linux perf
         -Wall
